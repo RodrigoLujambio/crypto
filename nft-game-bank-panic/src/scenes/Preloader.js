@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { events, LOGIN_PLAYER } from "../App";
+//import { events, LOGIN_PLAYER } from "../App";
 import { createStore, applyMiddleware } from "redux";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
@@ -48,7 +48,7 @@ export default class Preloader extends Phaser.Scene {
   preload() {
     this.loading = this.add.image(512, 384, "loading");
 
-    this.load.setPath("assets/bank-panic/");
+    this.load.setPath("assets/");
 
     this.load.image("start");
     this.load.image("title");
@@ -106,7 +106,7 @@ export default class Preloader extends Phaser.Scene {
 
     this.loading.once("pointerdown", () => {
       // communicate with ReactJS app
-      events.dispatch({ type: LOGIN_PLAYER, score: 0 });
+      //events.dispatch({ type: LOGIN_PLAYER, score: 0 });
     });
   }
 }

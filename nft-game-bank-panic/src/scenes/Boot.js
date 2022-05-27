@@ -6,7 +6,7 @@ export default class Boot extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("loading", "assets/bank-panic/loading.png");
+    this.load.image("loading", "assets/loading.png");
   }
 
   create() {
