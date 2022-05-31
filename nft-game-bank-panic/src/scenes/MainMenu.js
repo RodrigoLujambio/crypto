@@ -1,9 +1,9 @@
 import Phaser from "phaser";
-import { createStore, applyMiddleware } from "redux";
-import thunkMiddleware from "redux-thunk";
-import { createLogger } from "redux-logger";
+// import { createStore, applyMiddleware } from "redux";
+// import thunkMiddleware from "redux-thunk";
+// import { createLogger } from "redux-logger";
 // P2E integration: 3. import event types to communicate with ReactJS app
-import { events } from "../App";
+// import { events } from "../App";
 
 // Phaser event emitter
 var emitter = new Phaser.Events.EventEmitter();
@@ -12,24 +12,24 @@ var emitter = new Phaser.Events.EventEmitter();
 const initState = { player: {}, score: 0, nft: "", gameOver: false };
 
 // reducer
-function reducer(state = initState, action) {
-  switch (action.type) {
-    case STARTGAME:
-      emitter.emit("STARTGAME", action);
-      return { ...state };
-    default:
-      return state;
-  }
-}
+// function reducer(state = initState, action) {
+//   switch (action.type) {
+//     case STARTGAME:
+//       emitter.emit("STARTGAME", action);
+//       return { ...state };
+//     default:
+//       return state;
+//   }
+// }
 
 // event types
 export const STARTGAME = "STARTGAME";
 
 // redux
-export const mainMenuEvents = createStore(
-  reducer,
-  applyMiddleware(thunkMiddleware, createLogger())
-);
+// export const mainMenuEvents = createStore(
+//   reducer,
+//   applyMiddleware(thunkMiddleware, createLogger())
+// );
 
 export default class MainMenu extends Phaser.Scene {
   constructor() {
@@ -93,6 +93,7 @@ export default class MainMenu extends Phaser.Scene {
     this.music = this.sound.play("music", { loop: true });
 
     this.input.once("pointerdown", () => {
+      console.log("acaa")
       this.sound.stopAll();
       this.sound.play("shot");
       this.scene.start("MainGame");
