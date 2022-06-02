@@ -1,21 +1,18 @@
 import './App.css'
-import phaserGame from './PhaserGame'
-import HelloWorldScene from './scenes/HelloWorldScene'
-// import { createStore, applyMiddleware } from "redux";
-// import thunkMiddleware from "redux-thunk";
-// import { createLogger } from "redux-logger";
+import Phaser from "phaser";
+import gameConfig from './PhaserGame'
 
-const handleClick = () => {
-  const scene = phaserGame.scene.keys.helloworld as HelloWorldScene
-  scene.createEmitter()
-}
+// const handleClick = () => {
+//   const scene = phaserGame.scene.keys.helloworld as HelloWorldScene
+//   scene.createEmitter()
+// }
 
-// export const events = createStore(
-//   reducer,
-//   applyMiddleware(thunkMiddleware, createLogger())
-// );
+let game: Phaser.Game | null = null;
 
 function App(): JSX.Element {
+  if (!game) {
+    game = new Phaser.Game(gameConfig);
+  }
   return (<></>)
 }
 
