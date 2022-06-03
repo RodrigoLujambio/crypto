@@ -6,18 +6,22 @@ import MainGame from './scenes/Game'
 
 const gameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
-  parent: 'phaser-container',
-  backgroundColor: '#282c34',
-  scale: {
-    mode: Phaser.Scale.ScaleModes.RESIZE,
-    width: window.innerWidth,
-    height: window.innerHeight,
+  title: "P2E Bank Panic | Phaser x Moralis",
+  parent: "game-container",
+  autoFocus: true,
+  fps: {
+    target: 60,
   },
   physics: {
-    default: 'arcade',
+    default: "arcade",
     arcade: {
       gravity: { y: 200 },
+      debug: false,
     },
+  },
+  backgroundColor: "#282c34",
+  scale: {
+    mode: Phaser.Scale.ScaleModes.NONE,
   },
   scene: [Boot, Preloader, MainMenu, MainGame],
 }
